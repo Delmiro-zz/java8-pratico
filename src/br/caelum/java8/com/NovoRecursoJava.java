@@ -38,6 +38,9 @@ public class NovoRecursoJava {
 		
 		livros.sort(Comparator.comparing(s -> s.length() ));
 		System.out.println("Lambda: "+ livros);
+		
+		//Method reference
+		livros.sort(Comparator.comparing(String::length));
 	}
 }
 
