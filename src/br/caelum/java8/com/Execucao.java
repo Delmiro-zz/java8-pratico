@@ -3,6 +3,7 @@ package br.caelum.java8.com;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Execucao {
 	
@@ -26,6 +27,13 @@ public class Execucao {
 		//Quantos alunos existem em cada curso
 		cursos.stream().filter(curso -> curso.getAlunos() >= 100).map(Curso::getAlunos)	
 		.forEach(System.out::println);
+		
+		//Trabalhando com Optional
+		Optional<Curso> optionalCurso = cursos.stream().
+				filter(curso -> curso.getAlunos() >= 100)
+				.findAny();
+		
+		optionalCurso.ifPresent(curso -> System.out.println(curso.getNome()));
 		
 	}
 	
