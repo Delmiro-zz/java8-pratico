@@ -2,6 +2,7 @@ package br.caelum.java8.com;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -22,6 +23,14 @@ public class NovoRecursoJava {
 		//ForEach Java 8
 		Consumer<String> consumer = new ImprimeNaLinha();
 		livros.forEach(consumer);
+		
+		/*Criando o comparator*/
+		Comparator<String> comparator = new ComparadorPorTamanho();
+		Collections.sort(livros, comparator);
+		System.out.println("Ordenação pelo comparator: " + livros);
+		
+		livros.sort(comparator);
+		System.out.println("Recurso do Java 8:" + livros);
 	}
 }
 
@@ -29,6 +38,21 @@ class ImprimeNaLinha implements Consumer<String>{
 
 	public void accept(String t) {
 		System.out.println(t);
+	}
+}
+
+/*Criado um comparator por ordenação pelo tamanho da String*/
+class ComparadorPorTamanho implements Comparator<String>{
+
+	public int compare(String s1, String s2) {
+		
+		if(s1.length() < s2.length())
+			return -1;
+		
+		if(s1.length() > s2.length())
+			return 1;
+		
+		return 0;
 	}
 	
 }
