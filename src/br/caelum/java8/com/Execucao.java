@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
@@ -48,6 +49,16 @@ public class Execucao {
 	   List<Curso> cursosFiltrados = cursos.stream().
 				filter(curso -> curso.getAlunos() >= 100).
 				collect(Collectors.toList());
+	
+	 //Retornando de uma Stream para um Map
+	  Map<String, Integer> map = cursos.stream().
+				filter(curso -> curso.getAlunos() >= 100).
+				collect(Collectors.toMap(
+						curso->curso.getNome(), 
+						curso->curso.getAlunos()));
+	  
+	  
+	  
 	}
 	
 }
