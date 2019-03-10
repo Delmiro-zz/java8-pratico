@@ -1,10 +1,12 @@
 package br.caelum.java8.com;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 
 public class Execucao {
 	
@@ -41,6 +43,11 @@ public class Execucao {
 		
 	   System.out.println("Média:" + media.getAsDouble());
 	   
+	   
+	   //Retornando de uma Stream para uma Collection
+	   List<Curso> cursosFiltrados = cursos.stream().
+				filter(curso -> curso.getAlunos() >= 100).
+				collect(Collectors.toList());
 	}
 	
 }
