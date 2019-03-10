@@ -34,6 +34,10 @@ public class NovoRecursoJava {
 		
 		//foreach com lambda
 		livros.forEach(s -> System.out.println(s));
+		
+		
+		livros.sort(Comparator.comparing(s -> s.length() ));
+		System.out.println("Lambda: "+ livros);
 	}
 }
 
