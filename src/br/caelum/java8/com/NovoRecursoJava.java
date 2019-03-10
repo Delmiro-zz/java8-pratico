@@ -31,6 +31,9 @@ public class NovoRecursoJava {
 		
 		livros.sort(comparator);
 		System.out.println("Recurso do Java 8:" + livros);
+		
+		//foreach com lambda
+		livros.forEach(s -> System.out.println(s));
 	}
 }
 
