@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 public class Execucao {
 	
@@ -35,6 +36,11 @@ public class Execucao {
 		
 		optionalCurso.ifPresent(curso -> System.out.println(curso.getNome()));
 		
+	   //Get da media QTD de alunos	
+	   OptionalDouble media =  cursos.stream().mapToInt(Curso::getAlunos).average();
+		
+	   System.out.println("Média:" + media.getAsDouble());
+	   
 	}
 	
 }
